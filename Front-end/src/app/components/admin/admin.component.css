@@ -1,0 +1,28 @@
+.cont {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+}
+.active {
+  background-color: #dddddd !important;
+  color: #181818 !important;
+  border-radius: 1rem;
+}
+/* .top-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin-bottom: 10px;
+} */

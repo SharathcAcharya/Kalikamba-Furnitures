@@ -1,0 +1,74 @@
+<div class="text-center"><h1 class="fs-1 fw-bold">Admin Dashboard</h1></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div
+    class="collapse navbar-collapse d-flex justify-content-center"
+    id="navbarSupportedContent"
+  >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link fw-medium fs-5 ms-3 me-3"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          [routerLink]="['/admin']"
+          >Orders</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link fw-medium fs-5 ms-3 me-3"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          [routerLink]="['/admin/product']"
+          >Products</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link fw-medium fs-5 ms-3 me-3"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          [routerLink]="['/admin/users']"
+          >Users</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="cont p-5">
+  <div class="top-cards"><app-top-cards></app-top-cards></div>
+  <!-- ============================================================== -->
+  <!-- Sales chart -->
+  <!-- ============================================================== -->
+  <div class="row">
+    <div class="col-lg-7">
+      <app-sales-summary></app-sales-summary>
+    </div>
+    <div class="col-lg-5">
+      <app-feeds></app-feeds>
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- Table -->
+  <!-- ============================================================== -->
+  <div class="row">
+    <!-- column -->
+    <div class="col-12">
+      <app-orders></app-orders>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Table -->
+  <!-- ============================================================== -->
+</div>
+<div class="col-lg-1 col-md-2 col-sm-2 d-flex justify-content-center w-100">
+  <form action="post" class="">
+    <button
+      class="btn btn-danger d-flex justify-content-end mb-3"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </form>
+</div>

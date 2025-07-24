@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12 d-flex justify-content-center align-items-center latest">
+      <div class="latest">Our Latest Products</div>
+    </div>
+  </div>
+  <div class="row">
+    @for (u of FourProducts; track u.title ){
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 product-item product-image-wrapper">
+        <br>
+        <a href="product/{{u._id}}"><img class="product-image" src="{{u.image}}"></a>
+        <a mat-button type="button" class="cart-icon position-absolute top-0 end-0" (click)="openDialog(u._id)">
+          <mat-icon>search</mat-icon>
+        </a>
+        <div style="margin-left: 8%; margin-top: 6%;" class="justify-content-center">
+          <a>{{u.category}}</a>
+          <br>
+          <a style="color: gray;" href="product/{{u._id}}"><b>{{u.title}}</b></a>
+          <br>
+          <span><b>Rs {{u.price}}</b></span>
+
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

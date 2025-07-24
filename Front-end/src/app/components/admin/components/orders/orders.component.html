@@ -1,0 +1,92 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <!-- title -->
+    <h3 class="card-title fw-medium fs-3">Orders Dashboard</h3>
+    <!-- title -->
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr class="">
+            <th
+              class="text-dark font-medium fs-4 ps-5"
+              style="text-align: left"
+            >
+              User
+            </th>
+            <th class="text-dark font-medium fs-4">Actions</th>
+            <th class="text-dark font-medium fs-4">Status</th>
+            <th class="text-dark font-medium fs-4">Since</th>
+            <th class="text-dark font-medium fs-4">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                  [src]="image"
+                  alt="user"
+                  width="45"
+                  class="rounded-circle"
+                />
+                <div class="ms-3 d-flex flex-column align-items-start">
+                  <h5 class="mb-0 fw-medium fs-6">{{ order.username }}</h5>
+                  <span class="text-muted"></span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <button
+                class="btn btn-success me-1"
+                [disabled]="order.status == 'Accepted'"
+                (click)="accepted(order._id)"
+              >
+                Accept
+              </button>
+              <button
+                class="btn btn-danger"
+                [disabled]="order.status == 'Rejected'"
+                (click)="rejected(order._id)"
+              >
+                Reject
+              </button>
+              <button
+                class="btn btn-warning d-felx mx-1 p-1 align-items-center"
+                [disabled]="order.status == 'Pending'"
+                (click)="pending(order._id)"
+              >
+                <mat-icon>refresh</mat-icon>
+              </button>
+            </td>
+            <td class="flex-d flex-row align-items-center">
+              <div class="d-flex align-items-center">
+                <div
+                  class="p-2 rounded-circle me-1"
+                  [ngClass]="{
+                    'bg-success': order.status === 'Accepted',
+                    'bg-warning': order.status === 'Pending',
+                    'bg-danger': order.status === 'Rejected'
+                  }"
+                ></div>
+                <div>
+                  {{ order.status }}
+                </div>
+              </div>
+            </td>
+
+            <td>
+              <h5 class="mb-0 fw-medium fs-6">
+                {{ order.daysDifference }} Days
+              </h5>
+            </td>
+            <td>
+              <h5 class="mb-0 fw-medium fs-6">
+                {{ order.totalPrice.toFixed(1) }} Rs
+              </h5>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
